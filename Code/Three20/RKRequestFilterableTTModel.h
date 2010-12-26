@@ -24,7 +24,7 @@
 
 /**
  * A predicate to filter the model objects by
- */	
+ */
 @property (nonatomic, retain) NSPredicate* predicate;
 
 /**
@@ -64,5 +64,7 @@
  * Search the model for matching text
  */
 - (void)search:(NSString*)text;
+
+- (NSArray*)search:(NSString*)text inCollection:(NSArray*)collection;
 
 @end

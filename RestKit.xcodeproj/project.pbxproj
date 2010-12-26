@@ -172,6 +172,15 @@
 		3F6C3A2E10FE749C008F47C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C3A2D10FE749C008F47C5 /* Foundation.framework */; };
 		3F6C3A9410FE7519008F47C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6C3A9310FE7519008F47C5 /* main.m */; };
 		3F6C3A9610FE7524008F47C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6C3A9510FE7524008F47C5 /* UIKit.framework */; };
+		7324C11412C3D5A4007CF3D4 /* RKManagedObjectTableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7324C10F12C3D5A4007CF3D4 /* RKManagedObjectTableItem.m */; };
+		7324C11512C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7324C11112C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.m */; };
+		7324C11612C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7324C11312C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.m */; };
+		7324C11712C3D5A4007CF3D4 /* RKManagedObjectTableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 7324C10E12C3D5A4007CF3D4 /* RKManagedObjectTableItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7324C11812C3D5A4007CF3D4 /* RKManagedObjectTableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7324C10F12C3D5A4007CF3D4 /* RKManagedObjectTableItem.m */; };
+		7324C11912C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7324C11012C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7324C11A12C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7324C11112C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.m */; };
+		7324C11B12C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7324C11212C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7324C11C12C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7324C11312C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.m */; };
 		7377FBE21268E96300868752 /* RKManagedObjectCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 7377FBE11268E96300868752 /* RKManagedObjectCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73C89EF112A5BB9A000FE600 /* RKReachabilityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C89EF012A5BB9A000FE600 /* RKReachabilityObserver.m */; };
 		73C89EF212A5BB9A000FE600 /* RKReachabilityObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 73C89EEF12A5BB9A000FE600 /* RKReachabilityObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -578,6 +587,12 @@
 		3F6C3A9310FE7519008F47C5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F6C3A9510FE7524008F47C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3F6C3AD010FE76C1008F47C5 /* RKModelMapperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKModelMapperSpec.m; sourceTree = "<group>"; };
+		7324C10E12C3D5A4007CF3D4 /* RKManagedObjectTableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKManagedObjectTableItem.h; sourceTree = "<group>"; };
+		7324C10F12C3D5A4007CF3D4 /* RKManagedObjectTableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKManagedObjectTableItem.m; sourceTree = "<group>"; };
+		7324C11012C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKManagedObjectTTListDataSource.h; sourceTree = "<group>"; };
+		7324C11112C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKManagedObjectTTListDataSource.m; sourceTree = "<group>"; };
+		7324C11212C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKRequestManagedObjectTTModel.h; sourceTree = "<group>"; };
+		7324C11312C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKRequestManagedObjectTTModel.m; sourceTree = "<group>"; };
 		7377FBE11268E96300868752 /* RKManagedObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKManagedObjectCache.h; sourceTree = "<group>"; };
 		73C89EEF12A5BB9A000FE600 /* RKReachabilityObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKReachabilityObserver.h; sourceTree = "<group>"; };
 		73C89EF012A5BB9A000FE600 /* RKReachabilityObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKReachabilityObserver.m; sourceTree = "<group>"; };
@@ -895,11 +910,17 @@
 		253A089E12551D8D00976E89 /* Three20 */ = {
 			isa = PBXGroup;
 			children = (
-				253A08A512551D8D00976E89 /* Three20.h */,
+				7324C10E12C3D5A4007CF3D4 /* RKManagedObjectTableItem.h */,
+				7324C10F12C3D5A4007CF3D4 /* RKManagedObjectTableItem.m */,
+				7324C11012C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.h */,
+				7324C11112C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.m */,
 				253A089F12551D8D00976E89 /* RKRequestFilterableTTModel.h */,
 				253A08A012551D8D00976E89 /* RKRequestFilterableTTModel.m */,
+				7324C11212C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.h */,
+				7324C11312C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.m */,
 				253A08A312551D8D00976E89 /* RKRequestTTModel.h */,
 				253A08A412551D8D00976E89 /* RKRequestTTModel.m */,
+				253A08A512551D8D00976E89 /* Three20.h */,
 			);
 			path = Three20;
 			sourceTree = "<group>";
@@ -1187,6 +1208,9 @@
 				253A092D125525EE00976E89 /* Three20.h in Headers */,
 				253A092F125525F000976E89 /* RKRequestTTModel.h in Headers */,
 				253A0933125525F100976E89 /* RKRequestFilterableTTModel.h in Headers */,
+				7324C11712C3D5A4007CF3D4 /* RKManagedObjectTableItem.h in Headers */,
+				7324C11912C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.h in Headers */,
+				7324C11B12C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1654,6 +1678,9 @@
 			files = (
 				253A092E125525EF00976E89 /* RKRequestTTModel.m in Sources */,
 				253A0932125525F100976E89 /* RKRequestFilterableTTModel.m in Sources */,
+				7324C11812C3D5A4007CF3D4 /* RKManagedObjectTableItem.m in Sources */,
+				7324C11A12C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.m in Sources */,
+				7324C11C12C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1772,6 +1799,9 @@
 				25957826126E3BE9004BAC4C /* RKRailsRouterSpec.m in Sources */,
 				2524CB5D1278930200D1314C /* RKParamsAttachmentSpec.m in Sources */,
 				73C89EF112A5BB9A000FE600 /* RKReachabilityObserver.m in Sources */,
+				7324C11412C3D5A4007CF3D4 /* RKManagedObjectTableItem.m in Sources */,
+				7324C11512C3D5A4007CF3D4 /* RKManagedObjectTTListDataSource.m in Sources */,
+				7324C11612C3D5A4007CF3D4 /* RKRequestManagedObjectTTModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,3 +8,5 @@
 
 #import "RKRequestTTModel.h"
 #import "RKRequestFilterableTTModel.h"
+#import "RKRequestManagedObjectTTModel.h"
+#import "RKManagedObjectTTListDataSource.h"

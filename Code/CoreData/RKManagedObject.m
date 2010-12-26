@@ -30,6 +30,7 @@
 	NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
 	NSEntityDescription *entity = [self entity];
 	[fetchRequest setEntity:entity];
+	[fetchRequest setFetchBatchSize:15];
 	return fetchRequest;
 }
 
@@ -60,7 +61,7 @@
 		return nil;
 	} else {
 		return [objects objectAtIndex:0];
-	}	
+	}
 }
 
 + (NSArray*)objectsWithPredicate:(NSPredicate*)predicate {
@@ -110,7 +111,7 @@
 			return elementName;
 		}
 	}
-	
+
 	// Blow up if not found
 	[self doesNotRecognizeSelector:_cmd];
 	return nil;
@@ -163,7 +164,7 @@
 		NSString* propertyName = [[[self class] elementToPropertyMappings] objectForKey:elementName];
 		[params setValue:[self valueForKey:propertyName] forKey:elementName];
 	}
-	
+
 	return [NSDictionary dictionaryWithDictionary:params];
 }
 

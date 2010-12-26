@@ -13,7 +13,7 @@
 // RestKit managed models
 
 @interface RKManagedObject : NSManagedObject <RKObjectMappable> {
-	
+
 }
 
 /**
@@ -23,7 +23,7 @@
 + (NSManagedObjectContext*)managedObjectContext;
 
 /**
- *	The NSEntityDescription for the Subclass 
+ *	The NSEntityDescription for the Subclass
  *	defaults to the subclass className, may be overridden
  */
 + (NSEntityDescription*)entity;
@@ -88,7 +88,7 @@
 + (id)object;
 
 /**
- * The name of an object mapped property existing on this class representing the unique primary key. 
+ * The name of an object mapped property existing on this class representing the unique primary key.
  * Must be implemented by the subclass for the mapper to be able to uniquely identify objects.
  */
 + (NSString*)primaryKeyProperty;
@@ -117,7 +117,7 @@
  * Will hydrate the 'user' association on the managed object with the object
  * in the local object graph having the primary key specified in the managed object's
  * userId property.
- * 
+ *
  * In effect, this approach allows foreign key relationships between managed objects
  * to be automatically maintained from the server to the underlying Core Data object graph.
  */
