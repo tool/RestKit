@@ -195,13 +195,29 @@ static const NSString* kRKModelMapperMappingFormatParserKey = @"RKMappingFormatP
 
 // TODO: Can I make this support keyPath??
 - (id)mapObjectFromDictionary:(NSDictionary*)dictionary {
-	NSString* elementName = [[dictionary allKeys] objectAtIndex:0];
-	Class class = [_elementToClassMappings objectForKey:elementName];
-	NSDictionary* elements = [dictionary objectForKey:elementName];
-	
-	id model = [self findOrCreateInstanceOfModelClass:class fromElements:elements];
-	[self updateModel:model fromElements:elements];
-	return model;
+	NSArray* keys = [dictionary allKeys];
+	if ([keys count] == 1) {
+		
+		NSString* elementName = [[dictionary allKeys] objectAtIndex:0];
+		Class class = [_elementToClassMappings objectForKey:elementName];
+		NSDictionary* elements = [dictionary objectForKey:elementName];
+		
+		id model = [self findOrCreateInstanceOfModelClass:class fromElements:elements];
+		[self updateModel:model fromElements:elements];
+		return model;
+	} else {
+		NSMutableArray* objects = [NSMutableArray array];
+		for (NSString* key in keys) {
+			Class class = [_elementToClassMappings objectForKey:key];
+			NSDictionary* elements = [dictionary objectForKey:key];
+			id model = [self findOrCreateInstanceOfModelClass:class fromElements:elements];
+			if (model) {
+				[self updateModel:model fromElements:elements];
+				[objects addObject:model];
+			}
+		}
+		return objects;
+	}
 }
 
 - (NSArray*)mapObjectsFromArrayOfDictionaries:(NSArray*)array {
@@ -363,15 +379,19 @@ static const NSString* kRKModelMapperMappingFormatParserKey = @"RKMappingFormatP
 			// NOTE: The last part of the keyPath contains the elementName for the mapped destination class of our children
 			NSArray* componentsOfKeyPath = [elementKeyPath componentsSeparatedByString:@"."];
 			Class class = [_elementToClassMappings objectForKey:[componentsOfKeyPath objectAtIndex:[componentsOfKeyPath count] - 1]];
-			NSMutableSet* children = [NSMutableSet setWithCapacity:[relationshipElements count]];
+			NSMutableArray* children = [NSMutableArray arrayWithCapacity:[relationshipElements count]];
 			for (NSDictionary* childElements in relationshipElements) {				
 				id child = [self createOrUpdateInstanceOfModelClass:class fromElements:childElements];		
 				if (child) {
 					[children addObject:child];
 				}
 			}
+			if ([relationshipElements isKindOfClass:[NSArray class]]) {
+				[object setValue:children forKey:propertyName];
+			} else {
+				[object setValue:[NSSet setWithArray:children] forKey:propertyName];
+			}
 			
-			[object setValue:children forKey:propertyName];
 		} else if ([relationshipElements isKindOfClass:[NSDictionary class]]) {
 			NSArray* componentsOfKeyPath = [elementKeyPath componentsSeparatedByString:@"."];
 			Class class = [_elementToClassMappings objectForKey:[componentsOfKeyPath objectAtIndex:[componentsOfKeyPath count] - 1]];
