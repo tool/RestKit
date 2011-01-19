@@ -209,11 +209,23 @@ static const NSString* kRKModelMapperMappingFormatParserKey = @"RKMappingFormatP
 		NSMutableArray* objects = [NSMutableArray array];
 		for (NSString* key in keys) {
 			Class class = [_elementToClassMappings objectForKey:key];
-			NSDictionary* elements = [dictionary objectForKey:key];
-			id model = [self findOrCreateInstanceOfModelClass:class fromElements:elements];
-			if (model) {
-				[self updateModel:model fromElements:elements];
-				[objects addObject:model];
+			id object = [dictionary objectForKey:key];
+			if ([object isKindOfClass:[NSArray class]]) {
+				// TODO: Should these be flattened or added as an array?
+				if (class) {
+					NSArray* mappedObjects = [self mapObjectsFromArrayOfDictionaries:(NSArray*)object toClass:class];
+					NSDictionary* dict = [NSDictionary dictionaryWithObject:mappedObjects forKey:key];
+					[objects addObject:dict];
+				} else {
+					NSLog(@"Unknown key: '%@'. Skipping", key);
+					//[objects addObjectsFromArray:[self mapObjectsFromArrayOfDictionaries:(NSArray*)object]];
+				}
+			} else {
+				id model = [self findOrCreateInstanceOfModelClass:class fromElements:object];
+				if (model) {
+					[self updateModel:model fromElements:object];
+					[objects addObject:model];
+				}
 			}
 		}
 		return objects;
