@@ -14,7 +14,12 @@
 #import "RKClient.h"
 #import "../Support/Support.h"
 #import "RKURL.h"
+
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#else
+#import <AppKit/AppKit.h>
+#endif
 
 @implementation RKRequest
 
@@ -228,6 +233,7 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:kRKResponseReceivedNotification object:response userInfo:userInfo];
 
 	if ([response isServiceUnavailable] && [[RKClient sharedClient] serviceUnavailableAlertEnabled]) {
+#if TARGET_OS_IPHONE
 		UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:[[RKClient sharedClient] serviceUnavailableAlertTitle]
 															message:[[RKClient sharedClient] serviceUnavailableAlertMessage]
 														   delegate:nil
@@ -235,7 +241,14 @@
 												  otherButtonTitles:nil];
 		[alertView show];
 		[alertView release];
-
+#else
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:[[RKClient sharedClient] serviceUnavailableAlertMessage]];
+        [alert setInformativeText:[[RKClient sharedClient] serviceUnavailableAlertMessage]];
+        [alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
+        [alert runModal];
+		[alert release];
+#endif
 	}
 }
 

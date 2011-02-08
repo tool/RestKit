@@ -14,7 +14,12 @@
 #import "RKManagedObject.h"
 #import "RKURL.h"
 #import "RKNotifications.h"
+
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#else
+#import <AppKit/AppKit.h>
+#endif
 
 @implementation RKObjectLoader
 
@@ -117,13 +122,22 @@
 				[(NSObject<RKObjectLoaderDelegate>*)_delegate objectLoaderDidLoadUnexpectedResponse:self];
 			}
 
-			UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:[_client serviceUnavailableAlertTitle]
-																message:[_client serviceUnavailableAlertMessage]
+#if TARGET_OS_IPHONE
+			UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:[[RKClient sharedClient] serviceUnavailableAlertTitle]
+																message:[[RKClient sharedClient] serviceUnavailableAlertMessage]
 															   delegate:nil
 													  cancelButtonTitle:NSLocalizedString(@"OK", nil)
 													  otherButtonTitles:nil];
 			[alertView show];
 			[alertView release];
+#else
+			NSAlert *alert = [[NSAlert alloc] init];
+			[alert setMessageText:[[RKClient sharedClient] serviceUnavailableAlertMessage]];
+			[alert setInformativeText:[[RKClient sharedClient] serviceUnavailableAlertMessage]];
+			[alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
+			[alert runModal];
+			[alert release];
+#endif			
 
 		} else {
 			// TODO: We've likely run into a maintenance page here.  Consider adding the ability

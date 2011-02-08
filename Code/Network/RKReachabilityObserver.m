@@ -7,9 +7,14 @@
 //
 
 #import "RKReachabilityObserver.h"
-#import <UIKit/UIKit.h>
 #include <netdb.h>
 #include <arpa/inet.h>
+
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#else
+#import <AppKit/AppKit.h>
+#endif
 
 // Constants
 NSString* const RKReachabilityStateChangedNotification = @"RKReachabilityStateChangedNotification";
@@ -81,14 +86,22 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	if (self = [self init]) {
 		_reachabilityRef = reachabilityRef;
 		[self scheduleObserver];
-		
+
+#if TARGET_OS_IPHONE
+		NSString *appDidBecomeActiveNotification = UIApplicationDidBecomeActiveNotification;
+		NSString *appWillResignNotification = UIApplicationWillResignActiveNotification;
+#else
+		NSString *appDidBecomeActiveNotification = NSApplicationDidBecomeActiveNotification;
+		NSString *appWillResignNotification = NSApplicationWillResignActiveNotification;
+#endif
+
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(scheduleObserver)
-													 name:UIApplicationDidBecomeActiveNotification
+													 name:appDidBecomeActiveNotification
 												   object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(unscheduleObserver)
-													 name:UIApplicationWillResignActiveNotification
+													 name:appWillResignNotification
 												   object:nil];
 	}
 	return self;
@@ -136,12 +149,14 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 				status = RKReachabilityReachableViaWiFi;
 			}
 		}
-		
+
+#if TARGET_OS_IPHONE
 		if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN) {
 			// ... but WWAN connections are OK if the calling application
 			//     is using the CFNetwork (CFSocketStream?) APIs.
 			status = RKReachabilityReachableViaWWAN;
 		}
+#endif
 	}
 	return status;	
 }

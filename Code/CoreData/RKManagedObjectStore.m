@@ -7,7 +7,12 @@
 //
 
 #import "RKManagedObjectStore.h"
+
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#else
+#import <AppKit/AppKit.h>
+#endif
 
 NSString* const RKManagedObjectStoreDidFailSaveNotification = @"RKManagedObjectStoreDidFailSaveNotification";
 static NSString* const kRKManagedObjectContextKey = @"RKManagedObjectContext";
@@ -60,6 +65,7 @@ static NSString* const kRKManagedObjectContextKey = @"RKManagedObjectContext";
 	@catch (NSException* e) {
 		// TODO: This needs to be reworked into a delegation pattern
 		NSString* errorMessage = [NSString stringWithFormat:@"An unrecoverable error was encountered while trying to save the database: %@", [e reason]];
+#if TARGET_OS_IPHONE
 		UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Ruh roh.", nil) 
 														message:errorMessage
 													   delegate:nil 
@@ -67,6 +73,14 @@ static NSString* const kRKManagedObjectContextKey = @"RKManagedObjectContext";
 											  otherButtonTitles:nil];
 		[alert show];
 		[alert release];
+#else
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert setMessageText:NSLocalizedString(@"Ruh roh.", nil)];
+		[alert setInformativeText:errorMessage];
+		[alert addButtonWithTitle:NSLocalizedString(@"OK", nil)];
+		[alert runModal];
+		[alert release];
+#endif
 	} 
 	@finally {
 		if (error) {
