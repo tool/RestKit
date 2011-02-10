@@ -152,6 +152,12 @@ typedef enum {
 - (id)mapFromString:(NSString *)string toClass:(Class)class keyPath:(NSString*)keyPath;
 
 /**
+ * Returns mapped model(s) from the data serialized in the dictionary to an instance of a particular
+ * object class
+ */
+- (id)mapObjectFromDictionary:(NSDictionary*)dictionary  toClass:(Class)class;
+
+/**
  * Map an array of object dictionary representations to instances of a particular
  * object class
  */

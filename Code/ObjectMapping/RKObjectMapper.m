@@ -131,7 +131,11 @@ static const NSString* kRKModelMapperMappingFormatParserKey = @"RKMappingFormatP
 		object = [object valueForKeyPath:keyPath];
 	}
 	if ([object isKindOfClass:[NSDictionary class]]) {
-		return [self mapObjectFromDictionary:(NSDictionary*)object];
+		if (class) {
+			return [self mapObjectFromDictionary:(NSDictionary*)object toClass:class];
+		} else {
+			return [self mapObjectFromDictionary:(NSDictionary*)object];
+		}
 	} else if ([object isKindOfClass:[NSArray class]]) {
 		if (class) {
 			return [self mapObjectsFromArrayOfDictionaries:(NSArray*)object toClass:class];
@@ -201,6 +205,12 @@ static const NSString* kRKModelMapperMappingFormatParserKey = @"RKMappingFormatP
 	
 	id model = [self findOrCreateInstanceOfModelClass:class fromElements:elements];
 	[self updateModel:model fromElements:elements];
+	return model;
+}
+
+- (id)mapObjectFromDictionary:(NSDictionary*)dictionary toClass:(Class)class {
+	id model = [self findOrCreateInstanceOfModelClass:class fromElements:dictionary];
+	[self updateModel:model fromElements:dictionary];
 	return model;
 }
 
