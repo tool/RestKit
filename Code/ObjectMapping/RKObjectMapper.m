@@ -209,8 +209,7 @@ static const NSString* kRKModelMapperMappingFormatParserKey = @"RKMappingFormatP
 }
 
 - (id)mapObjectFromDictionary:(NSDictionary*)dictionary toClass:(Class)class {
-	id model = [self findOrCreateInstanceOfModelClass:class fromElements:dictionary];
-	[self updateModel:model fromElements:dictionary];
+	id model = [self createOrUpdateInstanceOfModelClass:class fromElements:dictionary];
 	return model;
 }
 
