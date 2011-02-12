@@ -192,6 +192,7 @@ static RKObjectManager* sharedManager = nil;
 
 - (RKObjectLoader*)getObject:(NSObject<RKObjectMappable>*)object delegate:(NSObject<RKObjectLoaderDelegate>*)delegate {
 	RKObjectLoader* loader = [self objectLoaderForObject:object method:RKRequestMethodGET delegate:delegate];
+	loader.params = nil;
 	[loader send];
 	return loader;
 }
