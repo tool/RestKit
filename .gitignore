@@ -16,3 +16,23 @@ Build
 *.perspectivev3
 
 Examples/RKDiscussionBoardExample/discussion_board_backend/public/system/attachments/*
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKit.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitCoreData.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitJSONParser+SBJSON.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitJSONParser+YAJL.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitNetwork.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitObjectMapping.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitSupport.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitThree20.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/UISpec.xcscheme
+RestKit.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/xcschememanagement.plist
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKit.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitCoreData.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitJSONParser+SBJSON.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitJSONParser+YAJL.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitNetwork.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitObjectMapping.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitSupport.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/RestKitThree20.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/UISpec.xcscheme
+RestKitOSX.xcodeproj/xcuserdata/felixyz.xcuserdatad/xcschemes/xcschememanagement.plist

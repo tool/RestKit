@@ -91,18 +91,18 @@ extern NSString* const kRKStringBoundary;
 }
 
 - (NSString *)mimeTypeForExtension:(NSString *)extension {
-	if (NULL != UTTypeCreatePreferredIdentifierForTag) {
-		CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)extension, NULL);
-		if (uti != NULL) {
-			CFStringRef mime = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType);
-			CFRelease(uti);
-			if (mime != NULL) {
-				NSString *type = [NSString stringWithString:(NSString *)mime];
-				CFRelease(mime);
-				return type;
-			}
-		}
-	}
+//	if (NULL != UTTypeCreatePreferredIdentifierForTag) {
+//		CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)extension, NULL);
+//		if (uti != NULL) {
+//			CFStringRef mime = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType);
+//			CFRelease(uti);
+//			if (mime != NULL) {
+//				NSString *type = [NSString stringWithString:(NSString *)mime];
+//				CFRelease(mime);
+//				return type;
+//			}
+//		}
+//	}
 	
     return @"application/octet-stream";
 }
