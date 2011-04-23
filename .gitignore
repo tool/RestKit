@@ -16,3 +16,5 @@ Build
 *.perspectivev3
 
 Examples/RKDiscussionBoardExample/discussion_board_backend/public/system/attachments/*
+
+*/xcuserdata/*
