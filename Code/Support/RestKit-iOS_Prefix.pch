@@ -3,10 +3,6 @@
 //
 
 #ifdef __OBJC__
-#if TARGET_OS_MAC
-#import <Cocoa/Cocoa.h>
-#else
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#endif
 #endif
