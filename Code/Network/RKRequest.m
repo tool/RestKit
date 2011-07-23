@@ -110,7 +110,6 @@
         CFRelease(dummyRequest);
         CFRelease(authorizationString);
     }
-	NSLog(@"Headers: %@", [_URLRequest allHTTPHeaderFields]);
 }
 
 // Setup the NSURLRequest. The request must be prepared right before dispatching

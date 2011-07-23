@@ -165,7 +165,6 @@
 	for (id object in models) {
 		if ([object isKindOfClass:[NSManagedObjectID class]]) {
 			id obj = [self.managedObjectStore objectWithID:(NSManagedObjectID*)object];
-			NSLog(@"OBJ: %@", obj);
 			[objects addObject:obj];
 		} else {
 			[objects addObject:object];
